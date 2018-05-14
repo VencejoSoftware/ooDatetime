@@ -11,15 +11,10 @@ env:
     - WINEPREFIX=~/.winelaz
     - DISPLAY=:99.0
   matrix:
-#    - LAZ_PKG=true
     - LAZ_VER=1.8.2
 
 matrix:
   include:
-#    - os: linux
-#      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --os=win32 --cpu=i386 --build-all --no-write-project --verbose"
-#    - os: linux
-#      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win64 LAZ_OPT="--build-mode=Debug --os=win64 --cpu=x86_64 --build-all --no-write-project --verbose"
     - os: linux
       env: LAZ_VER=1.8.2 LAZ_ENV= LAZ_OPT="--build-mode=Release --os=linux --cpu=x86_64 --build-all --no-write-project --verbose"
 
@@ -28,8 +23,9 @@ before_install:
   - chmod +x ./.travis.install.py
 
 install:
-  - ./.travis.install.py
   - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
+#  - ./.travis.install.py
+  - ${delphiooLib}/ooBatch/.travis.install.py
 
 script:
   - lazbuild $LAZ_OPT ./test/lazarus/test.lpi
