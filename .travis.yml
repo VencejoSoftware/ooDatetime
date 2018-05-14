@@ -2,7 +2,7 @@
 # License: MIT
 
 language: pascal
-sudo: required
+sudo: true
 dist: trusty
 
 os:
@@ -16,22 +16,16 @@ env:
     - delphiooLib=$TRAVIS_BUILD_DIR
   matrix:
     - LAZ_PKG=true
-    - LAZ_VER=1.6.2
+    - LAZ_VER=1.8.2
 
 matrix:
   include:
     - os: linux
-      env: LAZ_VER=1.4.4  LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--os=win32 --cpu=i386"
+      env: LAZ_VER=1.8.2  LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--os=win32 --cpu=i386"
     - os: linux
-      env: LAZ_VER=1.6.2  LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--os=win32 --cpu=i386"
+      env: LAZ_VER=1.8.2  LAZ_ENV=wine WINEARCH=win64 LAZ_OPT="--os=win64 --cpu=x86_64"
     - os: linux
-      env: LAZ_VER=1.4.4  LAZ_ENV=wine WINEARCH=win64 LAZ_OPT="--os=win64 --cpu=x86_64"
-    - os: linux
-      env: LAZ_VER=1.6.2  LAZ_ENV=wine WINEARCH=win64 LAZ_OPT="--os=win64 --cpu=x86_64"
-    - os: linux
-      env: LAZ_VER=1.4.4  LAZ_ENV=qemu-arm LAZ_OPT="--os=linux --cpu=arm"
-    - os: linux
-      env: LAZ_VER=1.6.2  LAZ_ENV=qemu-arm LAZ_OPT="--os=linux --cpu=arm"
+      env: LAZ_VER=1.8.2  LAZ_ENV=qemu-arm LAZ_OPT="--os=linux --cpu=arm"
 
 before_install:
   # Start virtual display server
