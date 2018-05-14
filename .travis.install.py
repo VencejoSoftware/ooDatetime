@@ -125,7 +125,7 @@ def install_lazarus_version(ver,rel,env):
         # Compile ARM cross compiler
         if os.system('cd /usr/share/fpcsrc/%s && sudo make clean crossall crossinstall %s' % (fpcv, opts)) != 0:
             return False
-        
+
         # Symbolic link to update default FPC cross compiler for ARM
         if os.system('sudo ln -sf /usr/lib/fpc/%s/ppcrossarm /usr/bin/ppcarm' % (fpcv)) != 0:
             return False
