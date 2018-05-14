@@ -1,4 +1,4 @@
-language: pascal
+language: generic
 sudo: true
 dist: trusty
 
@@ -33,6 +33,7 @@ install:
 
 script:
   - lazbuild $LAZ_OPT ./test/lazarus/test.lpr
+  - ./test/build/debug/test --all
 
 notifications:
   email:
