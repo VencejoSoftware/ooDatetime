@@ -20,18 +20,15 @@ matrix:
 
 before_install:
   - Xvfb $DISPLAY &
- # - chmod +x ./.travis.install.py
+  - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
   - chmod +x ${delphiooLib}/ooBatch/code/.travis.install.py
 
 install:
-  - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
-#  - ./.travis.install.py
   - ${delphiooLib}/ooBatch/code/.travis.install.py
 
 script:
   - lazbuild $LAZ_OPT ./test/lazarus/test.lpi
   - $LAZ_ENV ./test/build/release/test --all --format=plain
-  - ls ./test/build/
 
 notifications:
   email:
