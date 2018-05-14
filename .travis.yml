@@ -17,9 +17,11 @@ env:
 matrix:
   include:
     - os: linux
-      env: LAZ_VER=1.8.2 WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=linux --cpu=i386"
+      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--os=win32 --cpu=i386 --build-mode=Debug -T --build-all"
     - os: linux
-      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=win32 --cpu=i386"
+      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win64 LAZ_OPT="--os=win64 --cpu=x86_64 --build-mode=Debug -T --build-all"
+    - os: linux
+      env: LAZ_VER=1.8.2 LAZ_ENV=sh LAZ_OPT="--build-mode=Debug -T --build-all --os=linux --cpu=x86_64"
 
 before_install:
   - Xvfb $DISPLAY &
@@ -30,8 +32,8 @@ install:
   - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
 
 script:
-  - lazbuild $LAZ_OPT ./test/lazarus/test.lpr
-  - sh ../build/x86_64-linux/test --all --format=plain
+  - lazbuild $LAZ_OPT ./test/lazarus/test.lpi
+#  - $LAZ_ENV ../build/x86_64-linux/test --all --format=plain
 
 notifications:
   email:
