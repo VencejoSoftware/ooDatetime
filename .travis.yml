@@ -21,11 +21,7 @@ env:
 matrix:
   include:
     - os: linux
-      env: LAZ_VER=1.8.2  LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--os=win32 --cpu=i386"
-    - os: linux
-      env: LAZ_VER=1.8.2  LAZ_ENV=wine WINEARCH=win64 LAZ_OPT="--os=win64 --cpu=x86_64"
-    - os: linux
-      env: LAZ_VER=1.8.2  LAZ_ENV=qemu-arm LAZ_OPT="--os=linux --cpu=arm"
+      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=linux --cpu=i386"
 
 before_install:
   # Start virtual display server
@@ -33,13 +29,11 @@ before_install:
   - chmod +x ./.travis.install.py
 
 install:
-  # Install prerequisites (fpc/lazarus/wine/qemu)
-  - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
   - ./.travis.install.py
+  - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
 
 script:
-  - lazbuild $LAZ_OPT --build-mode=Debug ./test/lazarus/test.lpi  # Build project
-#  - $LAZ_ENV ./bin/my_lazarus_tests --all --format=plain         # Run tests suite
+  - lazbuild $LAZ_OPT ./test/lazarus/test.lpr
 
 notifications:
   email:
