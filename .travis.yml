@@ -17,7 +17,9 @@ env:
 matrix:
   include:
     - os: linux
-      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=os=win32 --cpu=i386"
+      env: LAZ_VER=1.8.2 WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=linux --cpu=i386"
+    - os: linux
+      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=win32 --cpu=i386"
 
 before_install:
   - Xvfb $DISPLAY &
@@ -29,7 +31,7 @@ install:
 
 script:
   - lazbuild $LAZ_OPT ./test/lazarus/test.lpr
-  - $LAZ_ENV ./test/build/debug/test --all --format=plain
+  - ./build/x86_64-linux/test --all --format=plain
 
 notifications:
   email:
