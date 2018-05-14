@@ -1,7 +1,7 @@
 # Part of `travis-lazarus` (https://github.com/nielsAD/travis-lazarus)
 # License: MIT
 
-language: generic
+language: pascal
 sudo: required
 dist: trusty
 
@@ -13,6 +13,7 @@ env:
   global:
     - WINEPREFIX=~/.winelaz
     - DISPLAY=:99.0
+    - delphiooLib=$TRAVIS_BUILD_DIR
   matrix:
     - LAZ_PKG=true
     - LAZ_VER=1.6.2
@@ -39,6 +40,7 @@ before_install:
 
 install:
   # Install prerequisites (fpc/lazarus/wine/qemu)
+  - git clone https://github.com/VencejoSoftware/ooBatch.git ${delphiooLib}/ooBatch
   - ./.travis.install.py
 
 script:
