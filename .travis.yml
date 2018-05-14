@@ -33,9 +33,8 @@ install:
 
 script:
   - lazbuild $LAZ_OPT ./test/lazarus/test.lpi
-  - $LAZ_ENV ../build/debug/test --all --format=plain
-  - ls
-  - ls ../build/
+  - $LAZ_ENV ./test/build/debug/test --all --format=plain
+  - ls ./test/build/
 
 notifications:
   email:
