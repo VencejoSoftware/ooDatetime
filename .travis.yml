@@ -1,6 +1,3 @@
-# Part of `travis-lazarus` (https://github.com/nielsAD/travis-lazarus)
-# License: MIT
-
 language: pascal
 sudo: true
 dist: trusty
@@ -11,6 +8,8 @@ os:
 env:
   global:
     - delphiooLib=$TRAVIS_BUILD_DIR
+    - WINEPREFIX=~/.winelaz
+    - DISPLAY=:99.0
   matrix:
     - LAZ_PKG=true
     - LAZ_VER=1.8.2
@@ -18,9 +17,14 @@ env:
 matrix:
   include:
     - os: linux
-      env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=linux --cpu=i386"
+      env:
+      LAZ_VER=1.8.2
+      LAZ_ENV=wine
+      WINEARCH=win32
+      LAZ_OPT="--build-mode=Debug --build-all --os=linux --cpu=i386"
 
 before_install:
+  - Xvfb $DISPLAY &
   - chmod +x ./.travis.install.py
 
 install:
