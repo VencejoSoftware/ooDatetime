@@ -1,5 +1,5 @@
 {
-  Copyright (c) 2016, Vencejo Software
+  Copyright (c) 2018, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
@@ -9,6 +9,7 @@ interface
 
 uses
   SysUtils, DateUtils,
+  ooYear,
   ooWeek,
 {$IFDEF FPC}
   fpcunit, testregistry
@@ -17,34 +18,34 @@ uses
 {$ENDIF};
 
 type
-  TWeekTest = class(TTestCase)
+  TWeekTest = class sealed(TTestCase)
   published
-    procedure NumberOfWeek_20_7_2017;
-    procedure NumberInMonthOfWeek_20_7_2017;
-    procedure StartAtOfWeek_20_7_2017;
-    procedure EndAtOfWeek_20_7_2017;
+    procedure NumberOf20_7_2017Is29;
+    procedure NumberInMonthForWeek29Year2017Is3;
+    procedure StartAtOfWeek29Year2017Is17_7_2017;
+    procedure EndAtOfWeek29Year2017Is20_7_2017;
   end;
 
 implementation
 
-procedure TWeekTest.EndAtOfWeek_20_7_2017;
+procedure TWeekTest.NumberOf20_7_2017Is29;
 begin
-  CheckEquals(EncodeDate(2017, 7, 23), TWeek.New(EncodeDate(2017, 7, 20)).EndAt);
+  CheckEquals(29, TWeek.NewByDate(EncodeDate(2017, 7, 20)).Number);
 end;
 
-procedure TWeekTest.NumberOfWeek_20_7_2017;
+procedure TWeekTest.NumberInMonthForWeek29Year2017Is3;
 begin
-  CheckEquals(29, TWeek.New(EncodeDate(2017, 7, 20)).Number);
+  CheckEquals(3, TWeek.New(29).NumberInMonth(TYear.New(2017)));
 end;
 
-procedure TWeekTest.NumberInMonthOfWeek_20_7_2017;
+procedure TWeekTest.StartAtOfWeek29Year2017Is17_7_2017;
 begin
-  CheckEquals(3, TWeek.New(EncodeDate(2017, 7, 20)).NumberInMonth);
+  CheckEquals(EncodeDate(2017, 7, 17), TWeek.New(29).StartAt(TYear.New(2017)));
 end;
 
-procedure TWeekTest.StartAtOfWeek_20_7_2017;
+procedure TWeekTest.EndAtOfWeek29Year2017Is20_7_2017;
 begin
-  CheckEquals(EncodeDate(2017, 7, 17), TWeek.New(EncodeDate(2017, 7, 20)).StartAt);
+  CheckEquals(EncodeDateTime(2017, 7, 23, 23, 59, 59, 999), TWeek.New(29).EndAt(TYear.New(2017)));
 end;
 
 initialization

@@ -1,5 +1,5 @@
 {
-  Copyright (c) 2016, Vencejo Software
+  Copyright (c) 2018, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
@@ -17,28 +17,28 @@ uses
 {$ENDIF};
 
 type
-  TYearTest = class(TTestCase)
+  TYearTest = class sealed(TTestCase)
   published
-    procedure YearNumber_2017;
-    procedure YearIsLeap_2016;
-    procedure YearIsNotLeap_2017;
+    procedure YearNumberOf2017Is2017;
+    procedure IsLeapOfYear2016IsTrue;
+    procedure IsLeapOfYear2017IsFalse;
   end;
 
 implementation
 
-procedure TYearTest.YearIsNotLeap_2017;
+procedure TYearTest.YearNumberOf2017Is2017;
 begin
-  CheckFalse(TYear.New(EncodeDate(2017, 1, 1)).IsLeap);
+  CheckEquals(2017, TYear.New(2017).Number);
 end;
 
-procedure TYearTest.YearIsLeap_2016;
+procedure TYearTest.IsLeapOfYear2017IsFalse;
 begin
-  CheckTrue(TYear.New(EncodeDate(2016, 1, 1)).IsLeap);
+  CheckFalse(TYear.NewByDate(EncodeDate(2017, 1, 1)).IsLeap);
 end;
 
-procedure TYearTest.YearNumber_2017;
+procedure TYearTest.IsLeapOfYear2016IsTrue;
 begin
-  CheckEquals(2017, TYear.New(EncodeDate(2017, 1, 1)).Number);
+  CheckTrue(TYear.New(2016).IsLeap);
 end;
 
 initialization

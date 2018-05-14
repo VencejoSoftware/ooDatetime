@@ -1,5 +1,5 @@
 {
-  Copyright (c) 2016, Vencejo Software
+  Copyright (c) 2018, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
@@ -9,6 +9,7 @@ interface
 
 uses
   SysUtils, DateUtils,
+  ooYear,
   ooMonth,
 {$IFDEF FPC}
   fpcunit, testregistry
@@ -18,48 +19,47 @@ uses
 {$ENDIF};
 
 type
-  TMonthTest = class(TTestCase)
+  TMonthTest = class sealed(TTestCase)
   published
-    procedure NameOfMonth_7_2017;
-    procedure ShortNameOfMonth_7_2017;
-    procedure NumberOfMonth_7_2017;
-    procedure StartAtOfMonth_7_2017;
-    procedure EndMonthOfMonth_7_2017;
-    procedure DayCountOfMonth_7_2017;
+    procedure JulyMonthNumberIs7;
+    procedure JulyMonthShortNameIsJul;
+    procedure JulyMonthShortNameIsJuly;
+    procedure DayCountOfJuly2017Is31;
+    procedure StartAtJuly2017Is1_7_2017;
+    procedure EndAtJuly2017Is31_7_2017;
   end;
 
 implementation
 
-procedure TMonthTest.DayCountOfMonth_7_2017;
+procedure TMonthTest.JulyMonthNumberIs7;
 begin
-  CheckEquals(31, TMonth.New(EncodeDate(2016, 7, 1)).DayCount);
+  CheckEquals(7, Ord(TMonth.New(TMonthNumber.July).Number));
 end;
 
-procedure TMonthTest.EndMonthOfMonth_7_2017;
+procedure TMonthTest.JulyMonthShortNameIsJul;
 begin
-  CheckEquals(EncodeDate(2017, 7, 31), TMonth.New(EncodeDate(2017, 7, 1)).EndAt);
+  CheckEquals({$IFDEF FormatSettingsScope}FormatSettings.{$ENDIF}LongMonthNames[7], TMonth.New(TMonthNumber.July).Name);
 end;
 
-procedure TMonthTest.NumberOfMonth_7_2017;
-begin
-  CheckEquals(7, Ord(TMonth.New(EncodeDate(2017, 7, 1)).Number));
-end;
-
-procedure TMonthTest.StartAtOfMonth_7_2017;
-begin
-  CheckEquals(EncodeDate(2017, 7, 1), TMonth.New(EncodeDate(2017, 7, 1)).StartAt);
-end;
-
-procedure TMonthTest.NameOfMonth_7_2017;
-begin
-  CheckEquals({$IFDEF FormatSettingsScope}FormatSettings.{$ENDIF}LongMonthNames[7],
-    TMonth.New(EncodeDate(2017, 7, 1)).Name);
-end;
-
-procedure TMonthTest.ShortNameOfMonth_7_2017;
+procedure TMonthTest.JulyMonthShortNameIsJuly;
 begin
   CheckEquals({$IFDEF FormatSettingsScope}FormatSettings.{$ENDIF}ShortMonthNames[7],
-    TMonth.New(EncodeDate(2017, 7, 1)).ShortName);
+    TMonth.New(TMonthNumber.July).ShortName);
+end;
+
+procedure TMonthTest.DayCountOfJuly2017Is31;
+begin
+  CheckEquals(31, TMonth.New(TMonthNumber.July).DayCount(TYear.New(2016)));
+end;
+
+procedure TMonthTest.StartAtJuly2017Is1_7_2017;
+begin
+  CheckEquals(EncodeDate(2017, 7, 1), TMonth.NewByDate(EncodeDate(2017, 7, 1)).StartAt(TYear.New(2017)));
+end;
+
+procedure TMonthTest.EndAtJuly2017Is31_7_2017;
+begin
+  CheckEquals(EncodeDateTime(2017, 7, 31, 23, 59, 59, 999), TMonth.New(TMonthNumber.July).EndAt(TYear.New(2017)));
 end;
 
 initialization

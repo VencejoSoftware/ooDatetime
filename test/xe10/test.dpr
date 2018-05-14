@@ -1,5 +1,5 @@
 {
-  Copyright (c) 2016, Vencejo Software
+  Copyright (c) 2018, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
@@ -7,14 +7,18 @@ program test;
 
 uses
   ooRunTest,
-  ooDateStamp_test in '..\code\ooDateStamp_test.pas',
-  ooDateTimeEx_test in '..\code\ooDateTimeEx_test.pas',
-  ooDateTimeStamp_test in '..\code\ooDateTimeStamp_test.pas',
-  ooDay_test in '..\code\ooDay_test.pas',
+  ooDaySpan_test in '..\code\ooDaySpan_test.pas',
+  ooDateTimeSpan_test in '..\code\ooDateTimeSpan_test.pas',
   ooMonth_test in '..\code\ooMonth_test.pas',
-  ooTimeStamp_test in '..\code\ooTimeStamp_test.pas',
+  ooTimeSpan_test in '..\code\ooTimeSpan_test.pas',
   ooWeek_test in '..\code\ooWeek_test.pas',
-  ooYear_test in '..\code\ooYear_test.pas';
+  ooYear_test in '..\code\ooYear_test.pas',
+  ooDaySpan in '..\..\code\ooDaySpan.pas',
+  ooDateTimeSpan in '..\..\code\ooDateTimeSpan.pas',
+  ooMonth in '..\..\code\ooMonth.pas',
+  ooTimeSpan in '..\..\code\ooTimeSpan.pas',
+  ooWeek in '..\..\code\ooWeek.pas',
+  ooYear in '..\..\code\ooYear.pas';
 
 {R *.RES}
 

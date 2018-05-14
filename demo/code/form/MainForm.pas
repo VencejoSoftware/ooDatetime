@@ -1,5 +1,5 @@
 {
-  Copyright (c) 2016, Vencejo Software
+  Copyright (c) 2018 Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
@@ -10,7 +10,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls,
-  ooYear, ooMonth, ooWeek, ooDay, ooDateStamp, ooTimeStamp, ooDateTimeStamp;
+  ooYear, ooMonth, ooWeek, ooDaySpan, ooTimeSpan, ooDateTimeSpan;
 
 type
   TMainForm = class(TForm)
@@ -27,26 +27,26 @@ implementation
 
 procedure TMainForm.FormCreate(Sender: TObject);
 var
-  DateStamp: IDateStamp;
-  DateTimeStamp: IDateTimeStamp;
+  DaySpan: IDaySpan;
+  DateTimeSpan: IDateTimeSpan;
 begin
   Memo1.Clear;
-  DateStamp := TDateStamp.NewFromDate(Now);
-  Memo1.Lines.Append(Format('Year: %d, IsLeap: %s', [DateStamp.Year.Number, BoolToStr(DateStamp.Year.IsLeap)]));
+  DaySpan := TDaySpan.NewByDate(Now);
+  Memo1.Lines.Append(Format('Year: %d, IsLeap: %s', [DaySpan.Year.Number, BoolToStr(DaySpan.Year.IsLeap)]));
   Memo1.Lines.Append(Format('Month: %d, Name: %s, ShortName: %s, Start: %s, End: %s, Days: %d',
-      [Ord(DateStamp.Month.Number), DateStamp.Month.Name, DateStamp.Month.ShortName, FormatDateTime('dd/mm/yyyy',
-        DateStamp.Month.StartAt), FormatDateTime('dd/mm/yyyy', DateStamp.Month.EndAt), DateStamp.Month.DayCount]));
-  Memo1.Lines.Append(Format('Number: %d, NumberInMonth: %d, Start: %s, End: %s', [DateStamp.Week.Number,
-      DateStamp.Week.NumberInMonth, FormatDateTime('dd/mm/yyyy', DateStamp.Week.StartAt), FormatDateTime('dd/mm/yyyy',
-        DateStamp.Week.EndAt)]));
-  Memo1.Lines.Append(Format('Day: %d, Name: %s, ShortName: %s, YearDay: %d, WeekDay: %d', [Ord(DateStamp.Day.Number),
-      DateStamp.Day.Name, DateStamp.Day.ShortName, DateStamp.Day.YearDayNumber, Ord(DateStamp.Day.WeekDay)]));
-  DateTimeStamp := TDateTimeStamp.Create(DateStamp, TTimeStamp.New(Now));
-  with DateTimeStamp do
+    [Ord(DaySpan.Month.Number), DaySpan.Month.Name, DaySpan.Month.ShortName, FormatDateTime('dd/mm/yyyy',
+    DaySpan.Month.StartAt(DaySpan.Year)), FormatDateTime('dd/mm/yyyy', DaySpan.Month.EndAt(DaySpan.Year)),
+    DaySpan.Month.DayCount(DaySpan.Year)]));
+  Memo1.Lines.Append(Format('Number: %d, NumberInMonth: %d, Start: %s, End: %s',
+    [DaySpan.Week.Number, DaySpan.Week.NumberInMonth(DaySpan.Year), FormatDateTime('dd/mm/yyyy',
+    DaySpan.Week.StartAt(DaySpan.Year)), FormatDateTime('dd/mm/yyyy', DaySpan.Week.EndAt(DaySpan.Year))]));
+  Memo1.Lines.Append(Format('Day: %d, Name: %s, ShortName: %s, YearDay: %d, WeekDay: %d',
+    [Ord(DaySpan.Number), DaySpan.Name, DaySpan.ShortName, DaySpan.YearDayNumber, Ord(DaySpan.WeekDay)]));
+  DateTimeSpan := TDateTimeSpan.Create(DaySpan, TTimeSpan.NewByTime(Now));
+  with DateTimeSpan do
   begin
-    Memo1.Lines.Append(Format('Day: %d/%d/%d Time: %d:%d:%d.%d', [Ord(DateStamp.Day.Number),
-        Ord(DateStamp.Month.Number), DateStamp.Year.Number, TimeStamp.Hours, TimeStamp.Minutes, TimeStamp.Seconds,
-        TimeStamp.Milliseconds]));
+    Memo1.Lines.Append(Format('Day: %d/%d/%d Time: %d:%d:%d.%d', [Ord(DaySpan.Number), Ord(DaySpan.Month.Number),
+      DaySpan.Year.Number, TimeSpan.Hour, TimeSpan.Minute, TimeSpan.Second, TimeSpan.Millisecond]));
   end;
 end;
 

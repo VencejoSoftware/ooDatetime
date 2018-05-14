@@ -1,10 +1,24 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 # ooDatetime - Object pascal datetime library
-Library manipulate date/time data types
+Library manipulate date/time data types as objects
 
 ### Documentation
 If not exists folder "code-documentation" then run the batch "build_doc". The main entry is ./doc/index.html
+
+### Example
+```pascal
+var
+  DateTimeSpan: IDateTimeSpan;
+begin
+  DateTimeSpan := TDateTimeSpan.Create(TDaySpan.NewByDate(Now), TTimeSpan.NewByTime(Now));
+  with DateTimeSpan do
+  begin
+    ShowMessage(Format('Day: %d/%d/%d Time: %d:%d:%d.%d', [DaySpan.Number, Ord(DaySpan.Month.Number),
+      DaySpan.Year.Number, TimeSpan.Hour, TimeSpan.Minute, TimeSpan.Second, TimeSpan.Millisecond]));
+  end;
+end;
+```
 
 ### Demo
 Before all, run the batch "build_demo" to build proyect. Then go to the folder "demo\build\release\" and run the executable.
