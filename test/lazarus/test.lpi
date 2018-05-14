@@ -177,7 +177,7 @@
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <OtherUnitFiles Value="$env(delphiooLib)\ooBatch\code;..\..\code;..\code"/>
-      <UnitOutputDirectory Value="..\build\$(TargetCPU)-$(TargetOS)"/>
+      <UnitOutputDirectory Value="..\build\debug"/>
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>
