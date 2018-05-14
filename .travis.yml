@@ -31,7 +31,7 @@ install:
 
 script:
   - lazbuild $LAZ_OPT ./test/lazarus/test.lpr
-  - ./build/x86_64-linux/test --all --format=plain
+  - sh ../build/x86_64-linux/test --all --format=plain
 
 notifications:
   email:
