@@ -7,12 +7,9 @@ dist: trusty
 
 os:
   - linux
-  - osx
 
 env:
   global:
-    - WINEPREFIX=~/.winelaz
-    - DISPLAY=:99.0
     - delphiooLib=$TRAVIS_BUILD_DIR
   matrix:
     - LAZ_PKG=true
@@ -24,8 +21,6 @@ matrix:
       env: LAZ_VER=1.8.2 LAZ_ENV=wine WINEARCH=win32 LAZ_OPT="--build-mode=Debug --build-all --os=linux --cpu=i386"
 
 before_install:
-  # Start virtual display server
-  - Xvfb $DISPLAY &
   - chmod +x ./.travis.install.py
 
 install:
