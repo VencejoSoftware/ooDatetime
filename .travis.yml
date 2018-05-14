@@ -9,7 +9,7 @@ env:
   global:
     - delphiooLib=$TRAVIS_BUILD_DIR
     - WINEPREFIX=~/.winelaz
-#    - DISPLAY=:99.0
+    - DISPLAY=:99.0
   matrix:
 #    - LAZ_PKG=true
     - LAZ_VER=1.8.2
@@ -24,7 +24,7 @@ matrix:
       env: LAZ_VER=1.8.2 LAZ_ENV= LAZ_OPT="--build-mode=Release --os=linux --cpu=x86_64 --build-all --no-write-project --verbose"
 
 before_install:
-#  - Xvfb $DISPLAY &
+  - Xvfb $DISPLAY &
   - chmod +x ./.travis.install.py
 
 install:
