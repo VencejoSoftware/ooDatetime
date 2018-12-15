@@ -10,13 +10,13 @@
   @author Vencejo Software <www.vencejosoft.com>
 }
 {$ENDREGION
-}unit ooWeek;
+}unit Week;
 
 interface
 
 uses
   DateUtils,
-  ooYear;
+  Year;
 
 type
 {$REGION 'documentation'}

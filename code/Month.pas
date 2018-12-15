@@ -10,13 +10,13 @@
   @author Vencejo Software <www.vencejosoft.com>
 }
 {$ENDREGION}
-unit ooMonth;
+unit Month;
 
 interface
 
 uses
   SysUtils, DateUtils,
-  ooYear;
+  Year;
 {$IFNDEF FPC}
 {$IF CompilerVersion > 21}{$DEFINE FormatSettingsScope}{$IFEND}
 {$ENDIF}

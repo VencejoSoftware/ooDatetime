@@ -6,19 +6,19 @@
 program test;
 
 uses
-  ooRunTest,
-  ooDaySpan_test in '..\code\ooDaySpan_test.pas',
-  ooDateTimeSpan_test in '..\code\ooDateTimeSpan_test.pas',
-  ooMonth_test in '..\code\ooMonth_test.pas',
-  ooTimeSpan_test in '..\code\ooTimeSpan_test.pas',
-  ooWeek_test in '..\code\ooWeek_test.pas',
-  ooYear_test in '..\code\ooYear_test.pas',
-  ooDaySpan in '..\..\code\ooDaySpan.pas',
-  ooDateTimeSpan in '..\..\code\ooDateTimeSpan.pas',
-  ooMonth in '..\..\code\ooMonth.pas',
-  ooTimeSpan in '..\..\code\ooTimeSpan.pas',
-  ooWeek in '..\..\code\ooWeek.pas',
-  ooYear in '..\..\code\ooYear.pas';
+  RunTest,
+  DaySpan_test in '..\code\DaySpan_test.pas',
+  DateTimeSpan_test in '..\code\DateTimeSpan_test.pas',
+  Month_test in '..\code\Month_test.pas',
+  TimeSpan_test in '..\code\TimeSpan_test.pas',
+  Week_test in '..\code\Week_test.pas',
+  Year_test in '..\code\Year_test.pas',
+  DaySpan in '..\..\code\DaySpan.pas',
+  DateTimeSpan in '..\..\code\DateTimeSpan.pas',
+  Month in '..\..\code\Month.pas',
+  TimeSpan in '..\..\code\TimeSpan.pas',
+  Week in '..\..\code\Week.pas',
+  Year in '..\..\code\Year.pas';
 
 {R *.RES}
 

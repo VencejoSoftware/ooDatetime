@@ -3,13 +3,13 @@
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
-unit ooTimeSpan_test;
+unit TimeSpan_test;
 
 interface
 
 uses
   SysUtils, DateUtils,
-  ooTimeSpan,
+  TimeSpan,
 {$IFDEF FPC}
   fpcunit, testregistry
 {$ELSE}
