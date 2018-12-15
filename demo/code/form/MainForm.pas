@@ -10,7 +10,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls,
-  ooYear, ooMonth, ooWeek, ooDaySpan, ooTimeSpan, ooDateTimeSpan;
+  Year, Month, Week, DaySpan, TimeSpan, DateTimeSpan;
 
 type
   TMainForm = class(TForm)

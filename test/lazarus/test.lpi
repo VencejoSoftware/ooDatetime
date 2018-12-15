@@ -122,51 +122,51 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="..\code\ooMonth_test.pas"/>
+        <Filename Value="..\code\Month_test.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="..\code\ooWeek_test.pas"/>
+        <Filename Value="..\code\Week_test.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="..\code\ooYear_test.pas"/>
+        <Filename Value="..\code\Year_test.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="..\code\ooDateTimeSpan_test.pas"/>
+        <Filename Value="..\code\DateTimeSpan_test.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit4>
       <Unit5>
-        <Filename Value="..\code\ooDaySpan_test.pas"/>
+        <Filename Value="..\code\DaySpan_test.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit5>
       <Unit6>
-        <Filename Value="..\code\ooTimeSpan_test.pas"/>
+        <Filename Value="..\code\TimeSpan_test.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit6>
       <Unit7>
-        <Filename Value="..\..\code\ooDateTimeSpan.pas"/>
+        <Filename Value="..\..\code\DateTimeSpan.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit7>
       <Unit8>
-        <Filename Value="..\..\code\ooDaySpan.pas"/>
+        <Filename Value="..\..\code\DaySpan.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit8>
       <Unit9>
-        <Filename Value="..\..\code\ooMonth.pas"/>
+        <Filename Value="..\..\code\Month.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit9>
       <Unit10>
-        <Filename Value="..\..\code\ooTimeSpan.pas"/>
+        <Filename Value="..\..\code\TimeSpan.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit10>
       <Unit11>
-        <Filename Value="..\..\code\ooWeek.pas"/>
+        <Filename Value="..\..\code\Week.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit11>
       <Unit12>
-        <Filename Value="..\..\code\ooYear.pas"/>
+        <Filename Value="..\..\code\Year.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit12>
     </Units>

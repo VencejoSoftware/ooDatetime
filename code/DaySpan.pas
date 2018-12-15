@@ -10,15 +10,15 @@
   @author Vencejo Software <www.vencejosoft.com>
 }
 {$ENDREGION}
-unit ooDaySpan;
+unit DaySpan;
 
 interface
 
 uses
   DateUtils, SysUtils,
-  ooYear,
-  ooMonth,
-  ooWeek;
+  Year,
+  Month,
+  Week;
 {$IFNDEF FPC}
 {$IF CompilerVersion > 21}{$DEFINE FormatSettingsScope}{$IFEND}
 {$ENDIF}

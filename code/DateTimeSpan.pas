@@ -10,13 +10,13 @@
   @author Vencejo Software <www.vencejosoft.com>
 }
 {$ENDREGION}
-unit ooDateTimeSpan;
+unit DateTimeSpan;
 
 interface
 
 uses
-  ooDaySpan,
-  ooTimeSpan;
+  DaySpan,
+  TimeSpan;
 
 type
 {$REGION 'documentation'}

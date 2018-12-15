@@ -3,14 +3,14 @@
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
-unit ooMonth_test;
+unit Month_test;
 
 interface
 
 uses
   SysUtils, DateUtils,
-  ooYear,
-  ooMonth,
+  Year,
+  Month,
 {$IFDEF FPC}
   fpcunit, testregistry
 {$ELSE}

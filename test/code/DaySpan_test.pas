@@ -3,16 +3,16 @@
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
-unit ooDaySpan_test;
+unit DaySpan_test;
 
 interface
 
 uses
   SysUtils,
-  ooDaySpan,
-  ooWeek,
-  ooMonth,
-  ooYear,
+  DaySpan,
+  Week,
+  Month,
+  Year,
 {$IFDEF FPC}
   fpcunit, testregistry
 {$ELSE}
